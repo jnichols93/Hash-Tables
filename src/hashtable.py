@@ -33,16 +33,18 @@ class HashTable:
 
         OPTIONAL STRETCH: Research and implement DJB2
         '''
-        pass
-
+        hash_num = 5381
+        for x in key:
+            hash_num = ((hash_num << 5)+ hash_num) + ord(x)
+        return hash_num
 
     def _hash_mod(self, key):
         '''
         Take an arbitrary key and return a valid integer index
         within the storage capacity of the hash table.
         '''
-        return self._hash(key) % self.capacity
-
+        return self._hash_djb2(key) % self.capacity
+        # question is the main point of hashing to simply create a greater variety of buckets
 
     def insert(self, key, value):
         '''
