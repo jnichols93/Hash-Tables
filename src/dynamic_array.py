@@ -11,8 +11,6 @@ class DynamicArray:
             # TODO: make array dynamically resize
             print("ERROR: Array is full")
             return
-
-
         # make sure the index is in range
         if index >= self.count:
             print("Error: Index out of range")
